@@ -1,0 +1,6 @@
+{
+	"appId": "io.ionic.starter",
+	"appName": "La reunión",
+	"webDir": "www",
+	"bundledWebRuntime": false
+}

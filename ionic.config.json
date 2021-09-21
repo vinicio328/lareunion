@@ -1,0 +1,7 @@
+{
+  "name": "La reunión",
+  "integrations": {
+    "capacitor": {}
+  },
+  "type": "angular"
+}
