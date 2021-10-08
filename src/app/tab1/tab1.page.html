@@ -1,7 +1,7 @@
 <ion-header [translucent]="true">
   <ion-toolbar>
     <ion-title>
-      Comania de Agua - La Reunión
+      Compañía de Agua - La Reunión
     </ion-title>
   </ion-toolbar>
 </ion-header>
@@ -14,16 +14,25 @@
     </ion-card-header>
     <ion-card-content>
       <ion-item>
-        <ion-toggle [(ngModel)]="isOn" readonly></ion-toggle>
+        <ion-toggle [(ngModel)]="isOn1" readonly></ion-toggle>
         <ion-label>
-          Estado del motor: {{isOn ? "Encendido" : "Apagado"}}
+          Estado del motor: {{isOn1 ? "Encendido" : "Apagado"}}
         </ion-label>
       </ion-item>
-      <ion-item *ngIf="!isOn">
+      <ion-item *ngIf="!isOn1">
         <ion-button color="primary" (click)="encenderMotor()" size="small">Encender Motor</ion-button>      
       </ion-item>
-      <ion-item *ngIf="isOn">
+      <ion-item *ngIf="isOn1">
         <ion-button color="secondary" (click)="apagarMotor()" size="small">Apagar Motor</ion-button>
+      </ion-item>
+      <ion-item>
+        <ion-list style="width: 100%;">
+          <ion-list-header>
+              Nivel del agua: {{level1 | percent }}  
+          </ion-list-header>   
+          <ion-progress-bar color="secondary" [value]="level1"></ion-progress-bar>       
+          <ion-button color="tertiary" (click)="consultarNivel()" size="small">Consultar nivel</ion-button>      
+        </ion-list>
       </ion-item>
     </ion-card-content>
   </ion-card>
@@ -33,20 +42,27 @@
     </ion-card-header>
     <ion-card-content>
       <ion-item>
-        <ion-toggle [(ngModel)]="isOn" readonly></ion-toggle>
+        <ion-toggle [(ngModel)]="isOn2" readonly></ion-toggle>
         <ion-label>
-          Estado del motor: {{isOn ? "Encendido" : "Apagado"}}
+          Estado del motor: {{isOn2 ? "Encendido" : "Apagado"}}
         </ion-label>
       </ion-item>
-      <ion-item *ngIf="!isOn">
-        <ion-button color="primary" (click)="encenderMotor()" size="small">Encender Motor</ion-button>      
+      <ion-item *ngIf="!isOn2">
+        <ion-button color="primary" (click)="encenderMotor(false)" size="small">Encender Motor</ion-button>      
       </ion-item>
-      <ion-item *ngIf="isOn">
-        <ion-button color="secondary" (click)="apagarMotor()" size="small">Apagar Motor</ion-button>
+      <ion-item *ngIf="isOn2">
+        <ion-button color="secondary" (click)="apagarMotor(false)" size="small">Apagar Motor</ion-button>
+      </ion-item>
+      <ion-item>
+        <ion-list style="width: 100%;">
+          <ion-list-header>
+              Nivel del agua: {{level2 | percent}}
+          </ion-list-header>   
+          <ion-progress-bar color="secondary" [value]="level2"></ion-progress-bar>       
+          <ion-button color="tertiary" (click)="consultarNivel(false)" size="small">Consultar nivel</ion-button>      
+        </ion-list>
       </ion-item>
     </ion-card-content>
   </ion-card>
   <ion-note color="primary">{{appHashString}}</ion-note>
-  <br>
-  <ion-note>{{smsTextmessage}}</ion-note>
 </ion-content>
